@@ -4,4 +4,6 @@ This repository contains my solutions to exercises in MegaK course. MegaK is mos
 Click below to read more about this course:  
 [MegaK full description](https://www.megak.pl/) 
 
-## Part 2: Node.js
+## Part 2: Node.js (in progress)
+#### Days 1-5:
+Basic operations on files (read/write) and directories.
