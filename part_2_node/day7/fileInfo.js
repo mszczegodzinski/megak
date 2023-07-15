@@ -13,7 +13,6 @@
  * 4. .txt
  */
 
-const fs = require('fs');
 const { dirname, basename, extname, normalize } = require('path');
 
 const filePath = process.argv[2];
