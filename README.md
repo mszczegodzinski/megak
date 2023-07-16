@@ -7,3 +7,5 @@ Click below to read more about this course:
 ## Part 2: Node.js (in progress)
 #### Days 1-5:
 Basic operations on files (read/write) and directories.
+#### Days 6-10:
+Paths, watch files, basic console weather app using fetch method
