@@ -9,3 +9,7 @@ Click below to read more about this course:
 Basic operations on files (read/write) and directories.
 #### Days 6-10:
 Paths, watch files, basic console weather app using fetch method
+#### Days 11-15 & 16-20:
+Cryptography, hash function, streams
+#### Days 21-25:
+HTTP, API
