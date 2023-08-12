@@ -6,6 +6,7 @@
  * This coookie should be saved at least for a month.
  * /cookie/show - display a given name.
  * /cookie/check - display information if name is already saved in the cookie.
+ * Do not use fetch method to send data from frontend to backend.
  */
 
 const express = require('express');
@@ -16,6 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static('public'));
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
 app.use('/cookie', cookieRouter);
 
 app.listen(3000, 'localhost');
