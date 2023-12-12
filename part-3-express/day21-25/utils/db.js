@@ -13,13 +13,24 @@ class Db {
     console.log(this._data);
   }
 
-  async create(obj) {
-    this._data.push({ id: uuid(), ...obj });
+  _save() {
     writeFile(this.dbFileName, JSON.stringify(this._data), "utf8");
+  }
+
+  create(obj) {
+    const id = uuid();
+    this._data.push({ id, ...obj });
+    this._save();
+
+    return id;
   }
 
   getAll() {
     return this._data;
+  }
+
+  getOne(id) {
+    return this._data.find((obj) => obj.id === id);
   }
 
   update(id, newObj) {
@@ -31,7 +42,11 @@ class Db {
           }
         : oneObj,
     );
-    writeFile(this.dbFileName, JSON.stringify(this._data), "utf8");
+    this._save();
+  }
+
+  delete(id) {
+    this._data = this._data.filter((obj) => obj.id !== id);
   }
 }
 
