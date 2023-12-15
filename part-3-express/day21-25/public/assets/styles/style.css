@@ -24,3 +24,11 @@ td, th {
 div {
   padding: 12px 0;
 }
+
+.error {
+  background: #cc0000;
+  border: 2px solid red;
+  padding: 20px;
+  margin: 10px auto;
+  width: 80%;
+}
