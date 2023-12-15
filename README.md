@@ -4,18 +4,25 @@ This repository contains my solutions to exercises in the MegaK course. MegaK is
 Click below to read more about this course:  
 [MegaK full description](https://www.megak.pl/) 
 
-## Part 3: Express (in progress)
-#### Days 1-5:
+## Part 5: Typescript
+## Part 4: Databases
 
+## Part 3: Express
+#### Week 1-2:
+Basic information about Express, request, response, cookies
+#### Week 3-4:
+Cookie configurator app.
+#### Week 5:
+Client CRM app. Basic CRUD operations using REST API
 
 ## Part 2: Node.js
-#### Days 1-5:
+#### Week 1:
 Basic operations on files (read/write) and directories.
-#### Days 6-10:
+#### Week 2:
 Paths, watch files, basic console weather app using fetch method
-#### Days 11-15 & 16-20:
+#### Week 3-4:
 Cryptography, hash function, streams
-#### Days 21-25:
+#### Week 5:
 HTTP, API, Event Emitter
 
 ## Part 1: JavaScript
