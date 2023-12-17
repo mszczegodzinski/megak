@@ -12,7 +12,7 @@
  * 9. Delete artist from artists collection who started playing more than 20 years ago
  */
 
-const { MongoClient, ObjectId } = require("mongodb");
+const { MongoClient } = require("mongodb");
 
 const client = new MongoClient("mongodb://localhost:27017");
 
