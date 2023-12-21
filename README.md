@@ -28,6 +28,7 @@ MongoDB
 
 CRUD operations in MongoDB. Refactor two mini projects (Active Record and Repository) from mysql to
 mongodb
+Create Santa Claus List project. Express app with mysql DB (Active Record). CRUD operations, forms, basic validation.
 
 ## Part 3: Express
 
