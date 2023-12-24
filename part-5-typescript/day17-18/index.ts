@@ -2,8 +2,8 @@ import * as express from "express";
 import * as cookieParser from "cookie-parser";
 import { engine } from "express-handlebars";
 import { ConfiguratorRouter } from "./routes/configurator";
-// import { HomeRouter } from "./routes/home";
-// import { OrderRouter } from "./routes/order";
+import { HomeRouter } from "./routes/home";
+import { OrderRouter } from "./routes/order";
 import { handlebarsHelpers } from "./utils/handlebars-helpers";
 import { COOKIE_BASES, COOKIE_ADDONS } from "./data/cookies-data";
 import { Application, json, Response, Request } from "express";
@@ -11,10 +11,12 @@ import { Entries } from "./types/entries";
 
 export class CookieMakerApp {
   private app: Application;
-  private data = {
+  public readonly data = {
     COOKIE_BASES,
     COOKIE_ADDONS,
   };
+
+  private readonly routers = [HomeRouter, ConfiguratorRouter, OrderRouter];
   constructor() {
     this._configureApp();
     this._setRoutes();
@@ -31,16 +33,19 @@ export class CookieMakerApp {
       ".hbs",
       engine({
         extname: ".hbs",
+        layoutsDir: __dirname + "/views/layouts",
         helpers: handlebarsHelpers,
       }),
     );
     this.app.set("view engine", ".hbs");
+    this.app.set("views", __dirname + "/views");
   }
 
   _setRoutes() {
-    // this.app.use("/", new HomeRouter(this).router);
-    this.app.use("/configurator", new ConfiguratorRouter(this).router);
-    // this.app.use("/order", new OrderRouter(this).router);
+    for (const router of this.routers) {
+      const obj = new router(this);
+      this.app.use(obj.urlPrefix, obj.router);
+    }
   }
 
   _run() {
