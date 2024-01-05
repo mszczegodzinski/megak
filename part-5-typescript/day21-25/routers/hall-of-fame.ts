@@ -1,7 +1,19 @@
-import { Router } from "express";
+import { Router } from 'express';
+import { WarriorRecord } from '../records/warrior.record';
 
-export const fameRouter = Router();
+export const hallOfFameRouter = Router();
 
-fameRouter.get("/ranking", (req, res) => {
-  res.render("views/ranking.hbs", {});
+hallOfFameRouter.get('/', async (req, res) => {
+  const topWarriors = (await WarriorRecord.listTop(10)).map(
+    (warrior, index) => {
+      return {
+        place: index + 1,
+        warrior,
+      };
+    },
+  );
+
+  res.render('hall-of-fame/list', {
+    warriors: topWarriors,
+  });
 });

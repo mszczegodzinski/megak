@@ -1,12 +1,16 @@
-import { Router } from "express";
+import { Router } from 'express';
+import { WarriorRecord } from '../records/warrior.record';
 
 export const arenaRouter = Router();
 
 arenaRouter
-  .get("/fight-form", (req, res) => {
-    res.render("views/arena.hbs", {});
+  .get('/fight-form', async (req, res) => {
+    const warriors = await WarriorRecord.listAll();
+    res.render('arena/fight-form', {
+      warriors,
+    });
   })
 
-  .post("/fight", (req, res) => {
-    res.render("views/arena.hbs", {});
+  .post('/fight', (req, res) => {
+    res.render('arena/fight', {});
   });

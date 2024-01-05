@@ -1,7 +1,7 @@
-import { Router } from "express";
+import { Router } from 'express';
 
 export const homeRouter = Router();
 
-homeRouter.get("/", (req, res) => {
-  res.render("views/home.hbs", {});
+homeRouter.get('/', (req, res) => {
+  res.render('home/home', {});
 });
