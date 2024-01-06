@@ -8,6 +8,12 @@ Click below to read more about this course:
 [MegaK full description](https://www.megak.pl/)
 
 ## Part 5: Typescript
+#### Week 1-3:
+Basic information about Typescript.
+#### Week 4:
+Adding types to previous projects like Warrior, Restaurant, Cookie Maker, and Santa Claus list.
+#### Week 5:
+Project - Fighting Arena. Express, Handlebars, forms, saving warriors data in mysql DB.
 
 ## Part 4: Databases
 
