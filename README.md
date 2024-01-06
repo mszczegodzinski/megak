@@ -13,7 +13,7 @@ Basic information about Typescript.
 #### Week 4:
 Adding types to previous projects like Warrior, Restaurant, Cookie Maker, and Santa Claus list.
 #### Week 5:
-
+Project - Fighting Arena. Express, Handlebars, forms, saving warriors data in mysql DB.
 
 ## Part 4: Databases
 

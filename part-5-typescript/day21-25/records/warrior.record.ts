@@ -80,7 +80,7 @@ export class WarriorRecord {
 
   static async getOne(id: string): Promise<WarriorRecord | null> {
     const [results] = (await pool.execute(
-      'SELECT * FROM `warrior` WHERE `id` = :id',
+      'SELECT * FROM `warriors` WHERE `id` = :id',
       {
         id,
       },
@@ -90,7 +90,7 @@ export class WarriorRecord {
 
   static async listAll(): Promise<WarriorRecord[]> {
     const [results] = (await pool.execute(
-      'SELECT * FROM `warrior`',
+      'SELECT * FROM `warriors`',
     )) as WarriorRecordResult;
     return results.map((obj) => new WarriorRecord(obj));
   }
