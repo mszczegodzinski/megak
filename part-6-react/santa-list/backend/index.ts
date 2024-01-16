@@ -17,7 +17,7 @@ app.use(
 
 app.use(express.json());
 
-app.use("/", homeRouter);
+// app.use("/", homeRouter);
 app.use("/child", childRouter);
 app.use("/gift", giftRouter);
 

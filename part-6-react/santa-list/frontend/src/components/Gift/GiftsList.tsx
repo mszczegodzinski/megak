@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GiftEntity } from "../../types/gift.entity";
+import { GiftEntity } from "types";
 import { GiftsTable } from "./GiftsTable";
 
 export const GiftsList = () => {
