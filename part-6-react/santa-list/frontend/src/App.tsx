@@ -1,15 +1,19 @@
-import React from "react";
-import "./App.css";
-import { GiftsList } from "./components/Gift/GiftsList";
-import { BrowserRouter } from "react-router-dom";
+import React from 'react';
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { GiftsView } from './views/GiftView';
+import { NotFoundView } from './views/NotFoundView';
+import { ChildView } from './views/ChildView';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <GiftsList />
-      </BrowserRouter>
-    </div>
+    <>
+      <Routes>
+        <Route path='/gift' element={<GiftsView />} />
+        <Route path='/child' element={<ChildView />} />
+        <Route path='*' element={<NotFoundView />} />
+      </Routes>
+    </>
   );
 }
 

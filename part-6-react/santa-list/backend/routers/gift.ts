@@ -1,25 +1,39 @@
-import { Router, Request, Response } from "express";
-import { GiftRecord } from "../records/gift.record";
-import { ValidationError } from "../utils/errors";
+import { Router } from 'express';
+import { GiftRecord } from '../records/gift.record';
+import { ValidationError } from '../utils/errors';
+import { CreateGiftReq, GetSingleGiftRes, GiftEntity } from '../types';
 
 export const giftRouter = Router();
+
 giftRouter
-  .get("/", async (req, res) => {
+
+  .get('/', async (req, res) => {
     const giftsList = await GiftRecord.listAll();
+
     res.json({
       giftsList,
     });
   })
 
-  .delete("/:id", async (req, res) => {
+  .get('/:giftId', async (req, res) => {
+    const gift = await GiftRecord.getOne(req.params.giftId);
+    const givenCount = await gift.countGivenGifts();
+
+    res.json({
+      gift,
+      givenCount,
+    } as GetSingleGiftRes);
+  })
+
+  .delete('/:id', async (req, res) => {
     const gift = await GiftRecord.getOne(req.params.id);
 
     if (!gift) {
-      throw new ValidationError("No such gift.");
+      throw new ValidationError('No such gift.');
     }
 
     if ((await gift.countGivenGifts()) > 0) {
-      throw new ValidationError("Cannot remove given gift.");
+      throw new ValidationError('Cannot remove given gift.');
     }
 
     await gift.delete();
@@ -27,14 +41,9 @@ giftRouter
     res.end();
   })
 
-  .post("/", async (req, res) => {
-    const data = {
-      ...req.body,
-      count: Number(req.body.count),
-    };
-    console.log("data", data);
-    const newGift = new GiftRecord(data);
+  .post('/', async (req, res) => {
+    const newGift = new GiftRecord(req.body as CreateGiftReq);
     await newGift.insert();
 
-    res.redirect("/gift");
+    res.json(newGift);
   });
