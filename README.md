@@ -7,6 +7,10 @@ of front-end area like React.js.
 Click below to read more about this course:  
 [MegaK full description](https://www.megak.pl/)
 
+## Part 6: React
+#### Week 1-4:
+React basics: props, state, useState, functional components, class components, useEffect, rendering lists, events, handle sending forms
+
 ## Part 5: Typescript
 #### Week 1-3:
 Basic information about Typescript.
